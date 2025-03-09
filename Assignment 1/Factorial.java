@@ -1,22 +1,29 @@
 import java.util.Scanner;
 
-class Fact {
-    void Display_Factorial(int n) {
-        int fact = 1;
-        for (int i = 1; i <= n; i++) {
-            fact *= i;
+class FactorialCalculator {
+
+    // Method to calculate and display the factorial of a number
+    void displayFactorial(int number) {
+        int factorialResult = 1; // Initialize the result to 1
+        
+        // Loop through numbers from 1 to the given number
+        for (int currentMultiplier = 1; currentMultiplier <= number; currentMultiplier++) {
+            factorialResult *= currentMultiplier; // Multiply the result by the current number
         }
-        System.out.println("Factorial of " + n + " is: " + fact);
+        
+        System.out.println("Factorial of " + number + " is: " + factorialResult);
     }
 }
 
-class Factorial {
+public class FactorialFinder {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a number to find its factorial: ");
-        int num = sc.nextInt();
-        Fact obj = new Fact();
-        obj.Display_Factorial(num);
-        sc.close();
+        int inputNumber = scanner.nextInt(); // Read the input number
+        
+        FactorialCalculator calculator = new FactorialCalculator(); // Create object
+        calculator.displayFactorial(inputNumber); // Call the method to display factorial
+        
+        scanner.close(); // Close the scanner
     }
 }
