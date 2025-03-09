@@ -1,41 +1,32 @@
 import java.util.Scanner;
 
 class PrimeSum {
-    
-    boolean IsPrime(int num) {
-        if (num <= 1) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
+
+    // Method to check if a number is prime
+    boolean isPrime(int number) {
+        if (number <= 1) return false;
+        for (int divisor = 2; divisor * divisor <= number; divisor++) 
+            if (number % divisor == 0) return false;
         return true;
     }
 
-    
-    void checkPrimeSum(int n) {
-        boolean found = false;
-        for (int i = 2; i <= n / 2; i++) {
-            if (IsPrime(i) && IsPrime(n - i)) {
-                System.out.println(n + " can be expressed as sum of two prime numbers: " + i + " + " + (n - i));
-                found = true;
+    // Method to check if a number can be expressed as the sum of two primes
+    void checkPrimeSum(int targetNumber) {
+        for (int firstPrime = 2; firstPrime <= targetNumber / 2; firstPrime++) 
+            if (isPrime(firstPrime) && isPrime(targetNumber - firstPrime)) {
+                System.out.println(targetNumber + " = " + firstPrime + " + " + (targetNumber - firstPrime));
+                return;
             }
-        }
-        if (!found) {
-            System.out.println(n + " cannot be expressed as sum of two prime numbers.");
-        }
+        System.out.println(targetNumber + " cannot be expressed as the sum of two primes.");
     }
 }
 
-class Check {
+public class Check {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a number: ");
-        int num = sc.nextInt();
-        PrimeSum obj = new PrimeSum();
-        obj.checkPrimeSum(num);
-        sc.close();
+        int inputNumber = scanner.nextInt();
+        new PrimeSum().checkPrimeSum(inputNumber); // Create object and call method
+        scanner.close();
     }
 }
