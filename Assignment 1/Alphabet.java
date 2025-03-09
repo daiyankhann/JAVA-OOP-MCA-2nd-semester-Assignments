@@ -1,5 +1,5 @@
-class Alphabets {
-    void Display_Alphabets() {
+class A {
+    void DA() {
         System.out.println("Alphabets from A to Z :");
         for (char ch = 'A'; ch <= 'Z'; ch++) {
             System.out.print(ch + " ");
@@ -7,9 +7,9 @@ class Alphabets {
     }
 }
 
-class Alphabet {
+class A {
     public static void main(String[] args) {
         Alphabets obj = new Alphabets();
-        obj.Display_Alphabets();
+        obj.DA();
     }
 }
