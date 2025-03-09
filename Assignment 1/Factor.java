@@ -1,24 +1,29 @@
 import java.util.Scanner;
 
 class Factors {
-    
-    void Display_Factors(int num) {
-        System.out.print("Factors of " + num + " are: ");
-        for (int i = 1; i <= num; i++) {
-            if (num % i == 0) {
-                System.out.print(i + " ");
+
+    // Method to display factors of a number
+    void displayFactors(int number) {
+        System.out.print("Factors of " + number + " are: ");
+        
+        // Loop through numbers from 1 to the given number
+        for (int divisor = 1; divisor <= number; divisor++) {
+            if (number % divisor == 0) {
+                System.out.print(divisor + " "); // Print the divisor if it's a factor
             }
         }
     }
 }
 
-class Factor {
+public class FactorFinder {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a number to find its factors: ");
-        int number = sc.nextInt();
-        Factors obj = new Factors();
-        obj.Display_Factors(number);
-        sc.close();
+        int inputNumber = scanner.nextInt(); // Read the input number
+        
+        Factors factorCalculator = new Factors(); // Create object
+        factorCalculator.displayFactors(inputNumber); // Call the method to display factors
+        
+        scanner.close(); // Close the scanner
     }
 }
